@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\LikeRepository;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: LikeRepository::class)]
 #[ApiResource()]
@@ -18,6 +20,7 @@ use ApiPlatform\Metadata\GetCollection;
   ],
   operations: [ new GetCollection() ]
 )]
+#[ApiFilter(SearchFilter::class, properties: ['idDrink' => 'exact'])]
 class Like
 {
     #[ORM\Id]
