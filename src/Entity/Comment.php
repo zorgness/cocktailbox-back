@@ -6,9 +6,11 @@ use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ApiResource()]
+#[ApiFilter(SearchFilter::class, properties: ['idDrink' => 'exact'])]
 class Comment
 {
     #[ORM\Id]
