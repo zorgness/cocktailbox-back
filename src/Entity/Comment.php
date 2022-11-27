@@ -9,7 +9,7 @@ use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
-#[ApiResource()]
+#[ApiResource(order: ['id' => 'desc'])]
 #[ApiFilter(SearchFilter::class, properties: ['idDrink' => 'exact'])]
 class Comment
 {
