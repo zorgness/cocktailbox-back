@@ -21,6 +21,7 @@ use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
   operations: [ new GetCollection() ]
 )]
 #[ApiFilter(SearchFilter::class, properties: ['idDrink' => 'exact'])]
+#[ApiFilter(SearchFilter::class, properties: ['idDrink' => 'exact', 'account' => 'exact'])]
 class Like
 {
     #[ORM\Id]
